@@ -33,44 +33,43 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome"
       }
-    }
-  },
-
-  headless: {
-    launch_url: test_url,
-    globals: {
-      waitForConditionTimeout: defaultTimeout
     },
-    webdriver: {
-      server_path: chromedriver.path,
-      port: 9515
-    },
-    desiredCapabilities: {
-      browserName: "chrome",
-      chromeOptions: {
-        w3c: false,
-        args: ['--headless', '--no-sandbox']
-      }
-    },
-
-    firefox: {
+    
+    headless: {
       launch_url: test_url,
       globals: {
         waitForConditionTimeout: defaultTimeout
       },
       webdriver: {
-        server_path: '.\\node_modules\\.bin\\geckodriver.cmd',
-        port: 4444
+        server_path: chromedriver.path,
+        port: 9515
       },
       desiredCapabilities: {
-        browserName: "firefox",
-        acceptInsecureCerts: true
+        browserName: "chrome",
+        chromeOptions: {
+          w3c: false,
+          args: ['--headless', '--no-sandbox']
+        }
+      },
+
+      firefox: {
+        launch_url: test_url,
+        globals: {
+          waitForConditionTimeout: defaultTimeout
+        },
+        webdriver: {
+          server_path: '.\\node_modules\\.bin\\geckodriver.cmd',
+          port: 4444
+        },
+        desiredCapabilities: {
+          browserName: "firefox",
+          acceptInsecureCerts: true
+        }
+      },
+
+      stage: {
+        launch_url: "http://stage.zombie-web:5000"
       }
     },
-
-    stage: {
-      launch_url: "http://stage.zombie-web:5000"
-    }
   }
-
 }
