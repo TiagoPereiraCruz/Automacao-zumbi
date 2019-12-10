@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image "tiagopcruz/node-wd"
+            args "--network=skynet"
         }
     }
     stages {
