@@ -20,7 +20,7 @@ module.exports = {
     workers: 2
   },
 
-  screnshots: {
+  screenshots: {
     enabled: true,
     on_failure: true,
     on_error: true,
